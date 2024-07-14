@@ -9,18 +9,15 @@ const newsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  link:{
+    type: String,
+    required : false
+  },
   date: {
     type: Date,
     default: Date.now
   },
-  image: {
-    type: String, // URL to the image
-    required: false
-  },
-  event: {
-    type: String, // Event name or description
-    required: false
-  }
+  
 });
 
 module.exports = mongoose.model('News', newsSchema);
