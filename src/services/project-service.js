@@ -7,14 +7,16 @@ class ProjectService {
     }
 
     async createProject(data) {
+        console.log(data);
         try {
             const project=await this.projectRepository.create(data);
-
+            console.log(project);
             const domain = await Domain.findById(data.domainId);
+            console.log(domain);
             if (!domain) {
                 throw new Error('Domain not found');
             }
-            domain.projects.push(newResource._id);
+            domain.projects.push(project._id);
             await domain.save();
             return project;
         } catch (error) {
