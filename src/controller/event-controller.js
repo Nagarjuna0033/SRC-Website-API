@@ -6,8 +6,11 @@ class EventController {
     }
 
     createEvent = async (req, res) => {
+        console.log("in event controller",req.body);
         try {
+            
             const event = await this.eventService.createEvent(req.body);
+            console.log("in event controller event", event);
             return res.status(201).json(event);
         } catch (error) {
             return res.status(400).json({ error: error.message });
