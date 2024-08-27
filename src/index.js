@@ -19,7 +19,7 @@ const apiRoutes = require("./routes/index");
 
 const { connect } = require("./config/database");
 app.use("/api", apiRoutes);
-console.log(process.env.mongoURI);
+console.log(process.env.MONGODB_URI);
 app.listen(PORT, async () => {
   console.log(`app listening at port ${PORT}`);
   await connect();
